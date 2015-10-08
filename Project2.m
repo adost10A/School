@@ -14,6 +14,15 @@ x2 = 12*n1 + 12*n1 - 24*n1; %Proves Linearity
 
 %Because all three yx's meet at the center at .5
 %-------------------------------------------------------------------------%
-p = -1:.001:1;
-p1 = conv(p,p);
-p2 = conv(p1,p1);
+t = -2:1/1000:2;
+t1 = -2:1/2000:2;
+t2 = -2:1/4000:2;
+p = (heaviside(t+1) - heaviside(t-1));
+p1 = (10^-3)*conv(p,p);
+p2 = (10^-3)*conv(p1,p1);
+subplot(3,1,1);
+plot(t,p);
+subplot(3,1,2);
+plot(t1,p1);
+subplot(3,1,3);
+plot(t2,p2);
